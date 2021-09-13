@@ -1,11 +1,11 @@
 package com.example.evalution_1;
 
 import java.util.List;
-import javax.annotation.Generated;
+
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
-@Generated("com.robohorse.robopojogenerator")
+
 public class ResponseModel implements Serializable {
 
 	@SerializedName("coming_soon")

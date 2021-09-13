@@ -1,10 +1,10 @@
 package com.example.evalution_1;
 
-import javax.annotation.Generated;
+
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
-@Generated("com.robohorse.robopojogenerator")
+
 public class ComingSoonModel implements Serializable {
 
 	@SerializedName("id")
