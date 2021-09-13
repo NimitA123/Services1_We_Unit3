@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,7 +28,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
    private RecyclerView recyclerView;
-   private ArrayList<ResponseModel> arrayList = new ArrayList<>();
+   private List<ResponseModel> arrayList = new ArrayList<>();
 
 
     @Override
@@ -53,7 +56,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                 if(response.body()!= null){
-                     arrayList = response.body();
+                     arrayList = (List<ResponseModel>) response.body();
                     setRecycleView();
                 }
             }
@@ -66,7 +69,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void setRecycleView() {
-
+       HomeFragmentAdapter homeFragmentAdapter = new HomeFragmentAdapter(arrayList);
+       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+       recyclerView.setAdapter(homeFragmentAdapter);
+       recyclerView.setLayoutManager(linearLayoutManager);
 
     }
 }
