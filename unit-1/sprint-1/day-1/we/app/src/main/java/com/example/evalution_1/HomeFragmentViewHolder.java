@@ -17,13 +17,15 @@ public class HomeFragmentViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         img = itemView.findViewById(R.id.imageView);
     }
-    public void setData(ResponseModel responseModel){
-        if(responseModel.getNowShowing()!=null){
+    public void setData(NowShowingModel responseModel){
+        img.setImageResource(responseModel.getStoryline().charAt(i));
+    }
+   /****     if(responseModel.getNowShowing()!= null){
                    Glide.with(img).load(responseModel.getNowShowing()).into(img);
                  }
         else{
             img.setImageResource(R.drawable.img2);
         }
     }
-
+****/
 }

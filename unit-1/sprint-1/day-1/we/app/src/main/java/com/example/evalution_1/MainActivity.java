@@ -23,4 +23,5 @@ public class MainActivity extends AppCompatActivity {
         HomeFragment homeFragment = new HomeFragment();
         fragmentTransaction.add(R.id.fragmentHomeFragment, homeFragment, "home fragment").commit();
     }
+
 }

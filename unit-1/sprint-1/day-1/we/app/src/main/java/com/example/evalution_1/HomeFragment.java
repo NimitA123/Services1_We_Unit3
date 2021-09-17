@@ -28,7 +28,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
    private RecyclerView recyclerView;
-   private List<ResponseModel> arrayList = new ArrayList<>();
+   private List<NowShowingModel> arrayList = new ArrayList<>();
 
 
     @Override
@@ -55,10 +55,8 @@ public class HomeFragment extends Fragment {
         apiService.getListOfPages().enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                if(response.body()!= null){
-                     arrayList = (List<ResponseModel>) response.body();
-                    setRecycleView();
-                }
+                if(response.body()!= null)
+                arrayList = (List<NowShowingModel>) response.body();
             }
 
             @Override

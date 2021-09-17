@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentViewHolder> {
-    private List<ResponseModel> arrayList;
-    public HomeFragmentAdapter(List<ResponseModel> arrayList) {
+    private List<NowShowingModel> arrayList;
+    public HomeFragmentAdapter(List<NowShowingModel> arrayList) {
         this.arrayList = arrayList;
     }
 
@@ -25,7 +25,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentViewHo
 
     @Override
     public void onBindViewHolder(@NonNull HomeFragmentViewHolder holder, int position) {
-        ResponseModel menu = arrayList.get(position);
+        NowShowingModel menu = arrayList.get(position);
         holder.setData(menu);
 
     }

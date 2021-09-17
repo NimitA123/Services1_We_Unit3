@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 for(int i = 0;   i <= 10;   i++) {
                     Log.d("Nimit", "The values of i is "+i);
-                //    tv.setText("The Process is Completed "+(i*10));
+                  //tv.setText("The Process is Completed "+(i*10));
                    progressBar.setProgress(i);
                 //   tv.setText("The Process is Completed "+(i*10));
                     Thread.sleep(1000);
