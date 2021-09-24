@@ -8,20 +8,20 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager;
+//    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentManager = getSupportFragmentManager();
-        initView();
+      //  fragmentManager = getSupportFragmentManager();
+      //  initView();
     }
 
-    private void initView() {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        HomeFragment homeFragment = new HomeFragment();
-        fragmentTransaction.add(R.id.fragmentHomeFragment, homeFragment, "home fragment").commit();
-    }
+    //private void initView() {
+      //  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+      //  HomeFragment homeFragment = new HomeFragment();
+      //  fragmentTransaction.add(R.id.fragmentHomeFragment, homeFragment, "home fragment").commit();
+  //  }
 
 }

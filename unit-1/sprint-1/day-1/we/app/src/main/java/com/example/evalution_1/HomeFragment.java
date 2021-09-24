@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeFragment extends Fragment {
 
    private RecyclerView recyclerView;
@@ -50,25 +48,29 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.rvRecycleView);
+        recyclerView = view.findViewById(R.id.recylerView);
         ApiService apiService = Network.getInstance().create(ApiService.class);
         apiService.getListOfPages().enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                if(response.body()!= null)
-                arrayList = (List<NowShowingModel>) response.body();
+               if(response.body().getNowShowing()!= null)
+                arrayList.addAll(response.body().getNowShowing());
+              //  Log.d("Nimit1", "Nimit");
+                setRecycleView();
+                Log.d("Nimit1", "Nimit");
             }
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
-
+                Toast.makeText(getContext(), "Response Fails", Toast.LENGTH_LONG).show();
             }
         });
     }
 
     private void setRecycleView() {
+
        HomeFragmentAdapter homeFragmentAdapter = new HomeFragmentAdapter(arrayList);
-       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
        recyclerView.setAdapter(homeFragmentAdapter);
        recyclerView.setLayoutManager(linearLayoutManager);
 

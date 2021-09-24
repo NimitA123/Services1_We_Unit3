@@ -25,14 +25,14 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentViewHo
 
     @Override
     public void onBindViewHolder(@NonNull HomeFragmentViewHolder holder, int position) {
-        NowShowingModel menu = arrayList.get(position);
+
+       NowShowingModel menu = arrayList.get(position);
         holder.setData(menu);
 
     }
 
     @Override
     public int getItemCount() {
-
         return arrayList.size();
     }
 }

@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     * the back button Thread will Destroy while Service will not destroy by Default service will run
     * in Main UI and Service will not Stop automatically u Should Stop while using StopService() method
     **/
+    /*** Service is a Special Class that will keep on Running even if your app main thread is killed****/
     private EditText mEtName;
     private Button mBtnSave;
     private BroadcastReceiver serviceReceiver = new BroadcastReceiver() {
