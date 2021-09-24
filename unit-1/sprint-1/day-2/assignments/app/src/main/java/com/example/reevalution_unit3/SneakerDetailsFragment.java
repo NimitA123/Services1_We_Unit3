@@ -36,6 +36,7 @@ public class SneakerDetailsFragment extends Fragment implements  ItemCickListene
     private int year;
     private int price;
     private NavController navController;
+    private ItemCickListener1 itemCickListener1;
     private LinearLayout linearLayout;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,19 +91,22 @@ public class SneakerDetailsFragment extends Fragment implements  ItemCickListene
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState, @NonNull ItemCickListener1 itemCickListener1) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        initView(view);
+
+        ItemCickListener1 itemClickListener1;
+        initView(view,  itemClickListener1);
     }
 
-    private void initView(View view) {
+    private void initView(View view, ItemCickListener1 itemCickListener1 ) {
         img = view.findViewById(R.id.imageView);
         tv = view.findViewById(R.id.Name);
         tv1 = view.findViewById(R.id.brand);
         tv2 = view.findViewById(R.id.Years);
         tv3 = view.findViewById(R.id.Price);
         linearLayout = view.findViewById(R.id.linearLayout);
+        this.itemCickListener1 = itemCickListener1;
         setData();
     }
 
@@ -112,6 +116,12 @@ public class SneakerDetailsFragment extends Fragment implements  ItemCickListene
        tv1.setText(brand);
        tv2.setText(year+" ");
        tv3.setText(price+" ");
+       linearLayout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               
+           }
+       });
     }
 
 
