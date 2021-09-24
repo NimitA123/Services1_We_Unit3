@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:id = "@+id/CardView"
+    android:backgroundTint="@color/purple_200"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id = "@+id/relativeLayout">
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:id = "@+id/image"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="18sp"
+        android:layout_below="@id/image"
+        android:id = "@+id/tvprice"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_below="@id/tvprice"
+
+        android:id = "@+id/tvName"/>
+
+</LinearLayout>
+</androidx.cardview.widget.CardView>
